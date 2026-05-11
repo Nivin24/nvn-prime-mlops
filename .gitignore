@@ -1,0 +1,28 @@
+# Python specifics
+__pycache__/
+*.py[cod]
+*$py.class
+.env
+env/
+venv/
+env42/
+
+# M1/macOS specifics
+.DS_Store
+
+# Data and Models (DVC will handle these)
+# We ignore the actual files but NOT the .dvc metadata files
+/data/nvn_prime_data.csv
+/models/*.pkl
+
+# DVC local state and credentials
+.dvc/config.local
+.dvc/tmp/
+.dvc/cache/
+
+# Metrics and logs
+metrics.json
+*.log
+
+# Docker
+.dockerignore

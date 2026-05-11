@@ -1,0 +1,5 @@
+outs:
+- md5: b29327dc75f0c9140422ab3fcc167e89
+  size: 66201
+  hash: md5
+  path: nvn_prime_data.csv
