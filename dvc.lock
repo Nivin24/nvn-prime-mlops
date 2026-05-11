@@ -5,8 +5,8 @@ stages:
     deps:
     - path: data/nvn_prime_data.csv
       hash: md5
-      md5: b29327dc75f0c9140422ab3fcc167e89
-      size: 66201
+      md5: 8dcc382a4d3408742d61d7c06ef46d81
+      size: 133073
     - path: src/train.py
       hash: md5
       md5: 98f358ff2c41bb1c5805bbfae4dab222
@@ -14,9 +14,9 @@ stages:
     outs:
     - path: metrics.json
       hash: md5
-      md5: 2b4f6b38ecf6e23ac7803c59f682ea4b
-      size: 18
+      md5: 85d7e80a57fc6cffa21ff8d4a3e61d7f
+      size: 19
     - path: models/churn_model.pkl
       hash: md5
-      md5: 9be4bcd59f82099115de89ee78561ce3
-      size: 188740
+      md5: 8961700733f856d3f08cf1ef906eac5a
+      size: 204996
