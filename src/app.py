@@ -5,13 +5,14 @@ from pydantic import BaseModel
 
 app = FastAPI(title="NvN Prime Churn Predictor")
 
-model = joblib.load('model/churn_model.pkl')
+model = joblib.load('models/churn_model.pkl')
 
 class CustomerData(BaseModel):
     session_duration: float
     pages_visited: int
     previous_purchase: int
     discount_applied: int
+    device_type_desktop: int
     device_type_mobile: int
     device_type_tablet: int
 

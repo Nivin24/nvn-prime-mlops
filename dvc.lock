@@ -1,0 +1,22 @@
+schema: '2.0'
+stages:
+  train:
+    cmd: python3 src/train.py
+    deps:
+    - path: data/nvn_prime_data.csv
+      hash: md5
+      md5: b29327dc75f0c9140422ab3fcc167e89
+      size: 66201
+    - path: src/train.py
+      hash: md5
+      md5: 98f358ff2c41bb1c5805bbfae4dab222
+      size: 1036
+    outs:
+    - path: metrics.json
+      hash: md5
+      md5: 2b4f6b38ecf6e23ac7803c59f682ea4b
+      size: 18
+    - path: models/churn_model.pkl
+      hash: md5
+      md5: 9be4bcd59f82099115de89ee78561ce3
+      size: 188740
