@@ -6,6 +6,7 @@ from sklearn.metrics import accuracy_score
 import json 
 import os
 
+
 def train_model():
     """Load data from data/ dir tracked by DVC"""
 
