@@ -1,0 +1,46 @@
+name: NvN Prime Continuous Training
+
+on:
+  push:
+    branches: [main]
+    paths:
+        - 'data/**'
+        - 'src/train.py'
+        - 'dvc.yaml'
+
+  workflow_dispatch:
+jobs:
+    retrain-and-sync:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Checkout Code
+              uses: actions/checkout@v4
+              with:
+                fetch-depth: 0
+
+            - name: Set up Python
+              uses: actions/setup-python@v4
+              with:
+                python-version: "3.10"
+                cache: 'pip'
+
+            - name: Authenticate DVC with Google Drive
+              run: |
+                dvc remote modify myremote --local \
+                gdrive_service_account_json_base64_encoded ${{secrets.GDRIVE_CREDENTIALS_DATA}}
+            
+            - name: Execute DVC Pipeline (Retrain)
+              run: |
+                dvc pull
+                dvc repro
+                dvc push
+
+            - name: Commit Updated Metadata
+              run: |
+                git config --local user.email "action@gmail.com"
+                git config --local user.name "Github Action"
+                git add .
+                git diff --quiet && git diff --staged --quiet || (git commit -m "Automated model retrain" && git push)
+        
+
